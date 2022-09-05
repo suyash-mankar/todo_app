@@ -1,0 +1,99 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    background-color: lightgrey;
+}
+
+.container{
+    margin: 0 auto;
+    width: 50%;
+    border: 1px solid grey;
+    height: 98vh;
+    background-color: white;
+}
+
+h1{
+    text-align: center;
+}
+
+input{
+    border: none;
+    display: block;
+    padding: 0;
+    width: 90%;
+    font-size: 1.1rem;
+}
+
+label{
+    display: block;
+    margin-bottom: 10px;
+    color: grey;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+select{
+    border: none;
+    padding: 0;
+    width: 90%;
+    font-size: 1.1rem;
+}
+
+
+
+input:focus{
+    outline: none;
+}
+
+select:focus{
+    outline: none;
+}
+
+
+.button-container{
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+button{
+    font-size: 1.3rem;
+    display: inline-block;
+    padding: 15px 20px;
+}
+
+.button-container #add{
+    background-color: grey;
+    color: white;
+}
+
+.button-container #delete{
+    background-color: red;
+    color: white;
+}
+
+.button-container i{
+    color: white;
+}
+
+
+.description-container{
+    padding: 10px 30px 30px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+.category-date-container{
+    padding: 10px 30px 30px;
+    display: flex;
+    border-bottom: 1px solid grey;
+}
+
+.category-container{
+    width: 50%;
+}
+
+.date-container{
+    width: 50%;
+}
+

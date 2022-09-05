@@ -4,14 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bd9c85c262.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="./css/home.css">
+    
     <title> <%= title %>  </title>
+
+    <script>
+        $(function() {
+          $( "#datepicker" ).datepicker({
+            dateFormat: "dd/mm/yy"
+          });
+        });
+      </script>
+
 </head>
+
 <body>
+
+
+    <div class="container">
 
     <h1> TODO App </h1>
 
+    <form action="/create-task" method="POST">
+        
+        <div class="description-container">
+            <label for="desciption"> DESCRIPTION* </label>
+            <input type="text" id="desciption" placeholder="What do you need to do?" required>
+        </div>
 
 
+        
+        <div class="category-date-container">
+           
+            <div class="category-container">
+                <label for="category"> CATEGORY </label>
+                <select name="category" id="category">
+                    <option value="default">Choose a category</option>
+                    <option value="personal">Personal</option>
+                    <option value="work">Work</option>
+                    <option value="school">School</option>
+                    <option value="cleaning">Cleaning</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="date-container"> 
+            
+                <label for="due-date"> DUE DATE </label>
+                <input type="text" id="datepicker" placeholder="dd/mm/yyyy">
+
+            </div>
+            
+        </div>
+            
+        <div class="button-container">
+            <button type="submit" name="add" id="add"> <i class="fa-solid fa-plus"></i> ADD TASK </button>
+            <button type="submit" name="delete" id="delete"> <i class="fa-solid fa-trash"></i> DELETE TASK </button>    
+        </div>
+   
+    </form>
+
+    </div>
 
 </body>
 </html>
