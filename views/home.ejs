@@ -33,7 +33,7 @@
         
         <div class="description-container">
             <label for="desciption"> DESCRIPTION* </label>
-            <input type="text" id="desciption" placeholder="What do you need to do?" required>
+            <input type="text" name="desciption" id="desciption" placeholder="What do you need to do?" required>
         </div>
 
 
@@ -55,7 +55,7 @@
             <div class="date-container"> 
             
                 <label for="due-date"> DUE DATE </label>
-                <input type="text" id="datepicker" placeholder="dd/mm/yyyy">
+                <input type="text" name="date" id="datepicker" placeholder="dd/mm/yyyy">
 
             </div>
             
@@ -63,7 +63,7 @@
             
         <div class="button-container">
             <button type="submit" name="add" id="add"> <i class="fa-solid fa-plus"></i> ADD TASK </button>
-            <button type="submit" name="delete" id="delete"> <i class="fa-solid fa-trash"></i> DELETE TASK </button>    
+            <button type="submit" name="delete" id="delete" formaction="/delete-task"> <i class="fa-solid fa-trash"></i> DELETE TASK </button>    
         </div>
    
     </form>
