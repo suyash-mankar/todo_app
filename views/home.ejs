@@ -32,8 +32,8 @@
     <form action="/create-task" method="POST">
         
         <div class="description-container">
-            <label for="desciption"> DESCRIPTION* </label>
-            <input type="text" name="desciption" id="desciption" placeholder="What do you need to do?" required>
+            <label for="description"> DESCRIPTION </label>
+            <input type="text" name="description" id="description" placeholder="What do you need to do?">
         </div>
 
 
@@ -62,7 +62,7 @@
         </div>
             
         <div class="button-container">
-            <button type="submit" name="add" id="add"> <i class="fa-solid fa-plus"></i> ADD TASK </button>
+            <button type="submit" id="add"> <i class="fa-solid fa-plus"></i> ADD TASK </button>
             <button type="submit" name="delete" id="delete" formaction="/delete-task"> <i class="fa-solid fa-trash"></i> DELETE TASK </button>    
         </div>
    
@@ -77,9 +77,9 @@
 
                     <div class="left-container">
 
-                        <div>
-                            <input type="checkbox">
-                        </div>
+                        
+                        <input type="checkbox" id="checkbox">
+                        
                         <div>
                             <p id="description"> <%= i.description %> </p>
                             <i class="fa-solid fa-calendar-days"></i>

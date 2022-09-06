@@ -1,46 +1,47 @@
 const express = require('express');
+
+const db = require('./config/mongoose');
+const Task = require('./models/task');
 const app = express();
 const port = 8000;
+const bodyParser = require('body-parser');
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('assets'));
 
 
-
-var tasks = [
-    {
-        description: "first task",
-        category: "Personal",
-        date: "06/09/2022"
-    },
-    {
-        description: "second task",
-        category: "Work",
-        date: "07/09/2022"
-    },
-    {
-        description: "third task",
-        category: "School",
-        date: "07/09/2022"
-    }
-]
-
-
-
-
-
 app.get('/', function(req, res){
-    return res.render('home', {
-        title: 'TODO List',
-        task_list: tasks
-    });
+
+    Task.find({}, function(err, tasks){
+        if(err){
+            console.log('error in fetching contacts from db');
+            return;
+        }
+        return res.render('home', {
+            title: 'TODO List',
+            task_list: tasks
+        });
+
+    })
+
+
+    
 })
 
 
 app.post('/create-task', function(req,res){
-    return res.end('<h1> task created successfully </h1>    ')
+
+    Task.create(req.body, function(err, newTask){
+        if(err){
+            console.log('error in creating a task', err);
+            return;
+        }
+        return res.redirect('back'); 
+    });
+    
 })
 
 

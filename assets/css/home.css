@@ -187,3 +187,9 @@ ul{
     color: white;
 }
 
+input[type=checkbox]:checked ~ div p{
+    color: red;
+    text-decoration: line-through;
+}
+
+
