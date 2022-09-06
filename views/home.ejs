@@ -68,6 +68,39 @@
    
     </form>
 
+    <div class="tasks-container">
+        <ul>
+
+            <% for(let i of task_list) { %> 
+                
+                <li class="task">
+
+                    <div class="left-container">
+
+                        <div>
+                            <input type="checkbox">
+                        </div>
+                        <div>
+                            <p id="description"> <%= i.description %> </p>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <p id="date"> <%= i.date %> </p>
+                        </div>
+
+                    </div>
+                    
+                    <div class="right-container">
+                        <p id="category"> <%= i.category %> </p>
+                    </div>
+                    
+
+                </li>
+                
+            <% }%> 
+
+        </ul>
+    </div>
+
+
     </div>
 
 </body>

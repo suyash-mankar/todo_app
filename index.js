@@ -8,9 +8,33 @@ app.set('views', './views');
 app.use(express.static('assets'));
 
 
+
+var tasks = [
+    {
+        description: "first task",
+        category: "Personal",
+        date: "06/09/2022"
+    },
+    {
+        description: "second task",
+        category: "Work",
+        date: "07/09/2022"
+    },
+    {
+        description: "third task",
+        category: "School",
+        date: "07/09/2022"
+    }
+]
+
+
+
+
+
 app.get('/', function(req, res){
     return res.render('home', {
-        title: 'TODO List'
+        title: 'TODO List',
+        task_list: tasks
     });
 })
 
