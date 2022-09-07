@@ -2,22 +2,33 @@ const Task = require('../models/task');
 
 module.exports.createTask = function(req, res){
 
-    let date = new Date(req.body.date).getDate();
-	if (date < 10) {
-		date = "0" + date;
-	}
+    let dateVal;
 
-	let month = new Date(req.body.date).toLocaleString("default", {
-		month: "short",
-	});
+    if(req.body.date == ""){
+        dateVal = "NO DEADLINE";
+    }
+    else{
+        let date = new Date(req.body.date).getDate();
+        if (date < 10) {
+            date = "0" + date;
+        }
     
-	let year = new Date(req.body.date).getFullYear().toString().slice(-2);
+        let month = new Date(req.body.date).toLocaleString("default", {
+            month: "short",
+        });
+        
+        let year = new Date(req.body.date).getFullYear().toString().slice(-2);  
+        
+        dateVal = `${month} ${date}, ${year}`;
+
+    }
+
 
     Task.create({
 
         description: req.body.description,
         category: req.body.category,
-        date: `${month} ${date}, ${year}`
+        date: dateVal
 
     }, function(err, newTask){
         if(err){
