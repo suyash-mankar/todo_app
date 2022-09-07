@@ -63,7 +63,8 @@
             
         <div class="button-container">
             <button type="submit" id="add"> <i class="fa-solid fa-plus"></i> ADD TASK </button>
-            <button type="submit" name="delete" id="delete" formaction="/delete-task"> <i class="fa-solid fa-trash"></i> DELETE TASK </button>    
+            <button type="submit" id="delete" formaction="/delete-task"> <i class="fa-solid fa-trash"></i> DELETE TASK </button>    
+            
         </div>
    
     </form>
@@ -78,18 +79,18 @@
                     <div class="left-container">
 
                         
-                        <input type="checkbox" id="checkbox">
+                        <input type="checkbox" class="checkbox" value="<%= i._id %> ">
                         
                         <div>
-                            <p id="description"> <%= i.description %> </p>
+                            <p class="description"> <%= i.description %> </p>
                             <i class="fa-solid fa-calendar-days"></i>
-                            <p id="date"> <%= i.date %> </p>
+                            <p class="date"> <%= i.date %> </p>
                         </div>
 
                     </div>
                     
                     <div class="right-container">
-                        <p id="category"> <%= i.category %> </p>
+                        <p class="category"> <%= i.category %> </p>
                     </div>
                     
 
@@ -102,6 +103,8 @@
 
 
     </div>
+
+    <script src="/js/home.js"></script>
 
 </body>
 </html>

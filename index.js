@@ -45,8 +45,22 @@ app.post('/create-task', function(req,res){
 })
 
 
+app.get('/delete-task', function(req,res){
+    
+    var id = req.query.id;
+    Task.findByIdAndDelete(id, function(err){
+        if(err){
+            console.log('error in deleting an object in db');
+            return;
+        }
+    });
+})
+
+
 app.post('/delete-task', function(req,res){
-    return res.end('<h1> task deleted successfully </h1>    ')
+
+    return res.redirect('back');
+        
 })
 
 app.listen(port, function(err){
