@@ -130,6 +130,7 @@ button{
 /* tasks */
 
 
+
 .tasks-container{
     border-top: 1px solid lightgrey;
     margin: 0 40px;
@@ -182,8 +183,28 @@ ul{
     align-items: center;
     width: 20%;
     height: 40px;
-    background-color: purple;
     color: white;
+}
+
+.personal{
+    background-color: green;
+}
+
+.work{
+    background-color: red;
+}
+
+.school{
+    background-color: blue;
+}
+
+.cleaning{
+    background-color: purple;
+}
+
+
+.other{
+    background-color: brown;
 }
 
 input[type=checkbox]:checked ~ div p{

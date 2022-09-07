@@ -24,17 +24,28 @@ app.get('/', function(req, res){
             title: 'TODO List',
             task_list: tasks
         });
-
-    })
-
-
-    
+    })   
 })
 
 
 app.post('/create-task', function(req,res){
 
-    Task.create(req.body, function(err, newTask){
+    let date = new Date(req.body.date).getDate();
+	if (date < 10) {
+		date = "0" + date;
+	}
+	const month = new Date(req.body.date).toLocaleString("default", {
+		month: "short",
+	});
+	const year = new Date(req.body.date).getFullYear().toString().slice(-2);
+
+    Task.create({
+
+        description: req.body.description,
+        category: req.body.category,
+        date: `${date} ${month}, ${year}`
+
+    }, function(err, newTask){
         if(err){
             console.log('error in creating a task', err);
             return;
