@@ -7,37 +7,31 @@
     <script src="https://kit.fontawesome.com/bd9c85c262.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <link rel="stylesheet" href="./css/home.css">
     
     <title> <%= title %>  </title>
 
-    <script>
-        $(function() {
-          $( "#datepicker" ).datepicker({
-            dateFormat: "dd-mm-yy"
-          });
-        });
-      </script>
 
 </head>
 
 <body>
 
-
+    <!-- Entire Todo list container -->
     <div class="container">
 
     <h1> TODO App </h1>
-
+    
+    <!-- form to take inputs : action set to "/tasks/create" -->
     <form action="/tasks/create" method="POST">
         
+        <!-- container to take task description input -->
         <div class="description-container">
             <label for="description"> DESCRIPTION </label>
             <input type="text" name="description" id="description" placeholder="What do you need to do?">
         </div>
 
 
-        
+        <!-- container for seleting the task category and date -->
         <div class="category-date-container">
            
             <div class="category-container">
@@ -56,34 +50,36 @@
             <div class="date-container"> 
             
                 <label for="due-date"> DUE DATE </label>
-                <!-- <input type="text" name="date" id="datepicker" placeholder="dd/mm/yyyy"> -->
                 <input type="date" name="date" id="date">
-
 
             </div>
             
         </div>
             
         <div class="button-container">
+            <!-- add task button -->
             <button type="submit" id="add"> <i class="fa-solid fa-plus"></i> ADD TASK </button>
+            <!-- delete task button : formaction set to "/tasks/delete" -->
             <button type="submit" id="delete" formaction="/tasks/delete"> <i class="fa-solid fa-trash"></i> DELETE TASK </button>    
             
         </div>
    
     </form>
 
+
+    <!-- Container for all tasks -->
     <div class="tasks-container">
         <ul>
 
+            <!-- Render the task list -->
             <% for(let i of task_list) { %> 
                 
                 <li class="task">
-
+                    <!-- left container to contain checkbox, task description and date -->
                     <div class="left-container">
-
-                        
+                        <!-- checkbox : set the 'value' attribute equal to the document '_id' and 'completed' attribute equals to the document 'completed field'-->
                         <input type="checkbox" class="checkbox" value="<%= i._id %>" completed="<%= i.completed %>">
-                        
+                        <!-- task description and date -->
                         <div>
                             <p class="description"> <%= i.description %> </p>
                             <i class="fa-solid fa-calendar-days"></i>
@@ -91,7 +87,7 @@
                         </div>
 
                     </div>
-                    
+                    <!-- right container to contain the task category -->
                     <div class="right-container <%= i.category %>">
                         <p class="category"> <%= i.category %> </p>
                     </div>

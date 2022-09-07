@@ -5,6 +5,7 @@ body{
     box-sizing: border-box;
 }
 
+/* Entire TODO list container */
 .container{
     margin: 0 auto;
     width: 50%;
@@ -13,10 +14,13 @@ body{
     background-color: white;
 }
 
+/* Heading */
 h1{
     text-align: center;
 }
 
+
+/* form Styling */
 form input{
     border: none;
     display: block;
@@ -41,7 +45,6 @@ select{
 }
 
 
-
 input:focus{
     outline: none;
 }
@@ -61,6 +64,7 @@ select:focus{
 }
 
 
+/* Form Buttons */
 button{
     font-size: 1.3rem;
     padding: 15px 20px;
@@ -81,20 +85,20 @@ button{
     color: white;
 }
 
-
+/* Form description container */
 .description-container{
     padding: 10px 30px 30px;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
 }
 
+/* Form category and date container */
 .category-date-container{
     display: flex;
     flex-grow: 1;
 }
 
-
-
+/* Form category container */
 .category-container{
     width: 50%;
     padding: 10px 30px 30px;
@@ -103,6 +107,7 @@ button{
 
 }
 
+/* Form date container */
 .date-container{
     width: 50%;
     padding: 10px 30px 30px;
@@ -110,6 +115,7 @@ button{
 
 }
 
+/* For screen width below 1020px */
 @media screen and (max-width: 1020px){
 
     .category-date-container{
@@ -127,10 +133,10 @@ button{
 
 
 
-/* tasks */
+/* ----------------Tasks List---------------- */
 
 
-
+/* Tasks Container */
 .tasks-container{
     border-top: 1px solid lightgrey;
     margin: 0 40px;
@@ -142,6 +148,7 @@ ul{
     margin: 0;
 }
 
+/* Individual task Container */
 .task{
     display: flex;
     justify-content: space-between;
@@ -149,13 +156,14 @@ ul{
     border-bottom: 1px solid lightgrey; 
 }
 
-
+/* checkbox */
 .task input{
     width: 20px;
     height: 20px;
 
 }
 
+/* left container to contain checkbox, task description and date */
 .left-container{
     display: flex;
 }
@@ -177,6 +185,7 @@ ul{
     margin-left: 20px;
 }
 
+/* right container to contain the task category */
 .right-container{
     display: flex;
     justify-content: center;
@@ -186,6 +195,8 @@ ul{
     color: white;
 }
 
+
+/* Different colors for different task categories */
 .personal{
     background-color: green;
 }
@@ -207,6 +218,7 @@ ul{
     background-color: brown;
 }
 
+/* checkbox line-through when checked */
 input[type=checkbox]:checked ~ div p{
     color: red;
     text-decoration: line-through;
