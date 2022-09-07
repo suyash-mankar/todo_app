@@ -15,7 +15,7 @@
     <script>
         $(function() {
           $( "#datepicker" ).datepicker({
-            dateFormat: "dd/mm/yy"
+            dateFormat: "dd-mm-yy"
           });
         });
       </script>
@@ -51,11 +51,14 @@
                     <option value="other">Other</option>
                 </select>
             </div>
+
             
             <div class="date-container"> 
             
                 <label for="due-date"> DUE DATE </label>
-                <input type="text" name="date" id="datepicker" placeholder="dd/mm/yyyy">
+                <!-- <input type="text" name="date" id="datepicker" placeholder="dd/mm/yyyy"> -->
+                <input type="date" name="date" id="date">
+
 
             </div>
             
@@ -79,7 +82,7 @@
                     <div class="left-container">
 
                         
-                        <input type="checkbox" class="checkbox" value="<%= i._id %> ">
+                        <input type="checkbox" class="checkbox" value="<%= i._id %>" completed="<%= i.completed %>">
                         
                         <div>
                             <p class="description"> <%= i.description %> </p>

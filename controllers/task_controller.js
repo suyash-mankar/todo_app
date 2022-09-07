@@ -6,16 +6,18 @@ module.exports.createTask = function(req, res){
 	if (date < 10) {
 		date = "0" + date;
 	}
-	const month = new Date(req.body.date).toLocaleString("default", {
+
+	let month = new Date(req.body.date).toLocaleString("default", {
 		month: "short",
 	});
-	const year = new Date(req.body.date).getFullYear().toString().slice(-2);
+    
+	let year = new Date(req.body.date).getFullYear().toString().slice(-2);
 
     Task.create({
 
         description: req.body.description,
         category: req.body.category,
-        date: `${date} ${month}, ${year}`
+        date: `${month} ${date}, ${year}`
 
     }, function(err, newTask){
         if(err){
@@ -27,16 +29,34 @@ module.exports.createTask = function(req, res){
 }
 
 
+module.exports.updateTask = (req, res) =>{
+    
+    let id = req.query.id;
+	let completed = req.query.completed;    
+
+	Task.findByIdAndUpdate(id, { completed: completed }, (err) => {
+		if (err) {
+			console.log("Error in Updating the Task");
+			return;
+		}
+		// console.log("Task Updated");
+		return res.redirect("back");
+	});
+}
+
+
+
+
+
 module.exports.deleteTask = function(req,res){
-    var id = req.query.id;
-    Task.findByIdAndDelete(id, function(err){
-        if(err){
-            console.log('error in deleting an object in db');
+
+    Task.deleteMany({ completed: true }, (err) => {
+        if (err) {
+            console.log("Error in Deleting the Task");
             return;
         }
+        // console.log("Task Deleted");
+        return res.redirect("back");
     });
 }
 
-module.exports.pageRefresh = function(req,res){
-    return res.redirect('back');
-}

@@ -10,7 +10,11 @@ const taskSchema = new mongoose.Schema({
     },
     date: {
         type: String
-    }
+    },
+    completed: {
+        type: Boolean,
+        default: false,
+    },
 
 });
 
