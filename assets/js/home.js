@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('input[type=checkbox]').change(function() {
 
         if (this.checked) {
-            $.get(`/delete-task/?id=${this.value}`);
+            $.get(`/tasks/delete/?id=${this.value}`);
         }
     });
 });
