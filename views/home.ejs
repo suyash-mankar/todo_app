@@ -19,7 +19,7 @@
     <!-- Entire Todo list container -->
     <div class="container">
 
-    <h1> TODO App </h1>
+    <h1> TODO APP </h1>
     
     <!-- form to take inputs : action set to "/tasks/create" -->
     <form action="/tasks/create" method="POST">
@@ -58,9 +58,9 @@
             
         <div class="button-container">
             <!-- add task button -->
-            <button type="submit" id="add"> <i class="fa-solid fa-plus"></i> ADD TASK </button>
+            <button type="submit" id="add" class="glow-on-hover"> <i class="fa-solid fa-plus"></i> ADD TASK </button>
             <!-- delete task button : formaction set to "/tasks/delete" -->
-            <button type="submit" id="delete" formaction="/tasks/delete"> <i class="fa-solid fa-trash"></i> DELETE TASK </button>    
+            <button type="submit" id="delete" formaction="/tasks/delete" class="glow-on-hover"> <i class="fa-solid fa-trash"></i> DELETE TASK </button>    
             
         </div>
    
@@ -81,7 +81,7 @@
                         <input type="checkbox" class="checkbox" value="<%= i._id %>" completed="<%= i.completed %>">
                         <!-- task description and date -->
                         <div>
-                            <p class="description"> <%= i.description %> </p>
+                            <p class="description <%= i.category %>-color"> <%= i.description %> </p>
                             <i class="fa-solid fa-calendar-days"></i>
                             <p class="date"> <%= i.date %> </p>
                         </div>
